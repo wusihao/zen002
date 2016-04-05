@@ -9,6 +9,19 @@ p {
 	margin-bottom: 12px;
 }
 
+h3 {
+	text-align: left;
+	font-size: 16px;
+}
+
+q {
+	line-height: 1em;
+	color: white;
+	margin-top: 5px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
 a {
 	font-weight: bold;
 	color: #e98376;
@@ -30,27 +43,38 @@ header {
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	height: 57px;
-	padding-top: 20px;
+	overflow: hidden;
 	background: white;
 	box-shadow: 0px 6px rgba(0,0,0,.1);
 }
 
 header h1 {
-	position: absolute;
-	top: 0;
-	left: 10px;
-	height: 70px;
+	float: left;
+	height: 60px;
 	width: 300px;
 	text-indent: -9999px;
-	background: url("img/3.png")no-repeat;
+	background: url("img/3.png")no-repeat 10px 0/280px 60px;
+}
+
+@keyframes changeBg{
+	0%{
+		background-position: 0 70px;
+	}
+	100%{
+		background-position: 0 0;
+	}
 }
 
 header h2 {
-	margin-left: 550px;
-	height: 50px;
+	margin-top: 10px;
+	margin-left: 480px;
+	height: 40px;
 	text-indent: -9999px;
 	background: url("img/4.png")no-repeat;
+	background-position: 0 70px;
+	animation: changeBg 1s linear 100ms both;
+	/*transition: background-position 1s linear 100ms ;
+	transform: translateY(-70px);*/
 }
 
 aside {
@@ -59,20 +83,35 @@ aside {
   	height: 900px;
 	width: 215px;
 	margin-top: 40px;
+	font-size: 11px;
 }
 
-aside .page-aside-tag {
-	position: absolute;
-	top: 520px;
-	left: 20px;
+aside .page-quote {
+	position: relative;
+	display: table;
 	width: 195px;
-	height: 64px;
+	height: 62px;
+	margin: 30px 10px ;
+	padding: 0px 4px;
+	text-align: center;
 	border: 1px solid #e4c4b4;
-	background: white url("img/6.jpg")no-repeat 4px 4px/187px 56px;
+	background: white url("img/6.jpg")no-repeat 4px 4px/195px 54px;
 	box-shadow: 1px 1px 5px rgba(0,0,0,.1);
 }
 
+aside .page-quote span{
+	font-weight: bold;
+}
+
+aside .page-quote p {
+	position: absolute;
+	top: 42px;
+	right: 10px;
+	color: white;
+}
+
 aside li {
+	line-height: 1.2em;
 	margin-top: 8px;
 }
 
@@ -86,20 +125,24 @@ aside span {
 
 aside .page-aside-title {
 	margin-top: 20px;
-	font-size: 16px;
+	font-family: "SimSun-ExtB";
+	font-size: 19px;
 	font-weight: bold;
+	color: #bc8c85;
+	letter-spacing: -2px;
 }
 
 aside ul > li:first-child::before,
 aside ul > li:first-child::after {
 	content: "";
 	position: absolute;
+	margin-top: 5px;
 	height: 16px;
 	background: #f1c5b0;
 }
 
 aside ul:nth-child(1) > li:first-child {
-	padding-left: 35px;
+	padding-left: 37px;
 }
 
 aside ul:nth-child(1) > li:first-child::before {
@@ -108,12 +151,12 @@ aside ul:nth-child(1) > li:first-child::before {
 }
 
 aside ul:nth-child(1) > li:first-child::after {
-	width: 31px;
+	width: 45px;
 	right: 0;
 }
 
 aside ul:nth-child(2) > li:first-child {
-	padding-left: 75px;
+	padding-left: 77px;
 }
 
 aside ul:nth-child(2) > li:first-child::before {
@@ -122,12 +165,12 @@ aside ul:nth-child(2) > li:first-child::before {
 }
 
 aside ul:nth-child(2) > li:first-child::after {
-	width: 50px;
+	width: 58px;
 	right: 0;
 }
 
 aside ul:nth-child(3) > li:first-child {
-	padding-left: 55px;
+	padding-left: 57px;
 }
 
 aside ul:nth-child(3) > li:first-child::before {
@@ -136,13 +179,12 @@ aside ul:nth-child(3) > li:first-child::before {
 }
 
 aside ul:nth-child(3) > li:first-child::after {
-	width: 60px;
+	width: 68px;
 	right: 0;
 }
 
 .page-content {
-	position: relative;
-	margin: 0px 0px  0px 240px;
+	margin: 0px 0px  0px 228px;
 	padding-top: 68px;
 	background: #ffc5a9;
 }
@@ -153,15 +195,18 @@ aside ul:nth-child(3) > li:first-child::after {
 	text-align: justify;
 }
 
-
-
 .page-content section {
 	position: relative;
 	margin-left: 42px;
 	margin-right: 10px;
-	padding-top: 50px;
-	height: 150px;
+	padding-right: 10px; 
+	padding-top: 1px;
+	height: 200px;
 	background: #ffd7c4;
+}
+
+.page-content section a {
+	color: #ad7c77;
 }
 
 .page-content section .page-content-photos {
@@ -176,7 +221,46 @@ aside ul:nth-child(3) > li:first-child::after {
 }
 
 .page-content section p {
+	margin-bottom: 0;
+	font-family: "SimSun-ExtB";
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+.page-content section div > p:first-child {
+	margin-top: 40px;
+	margin-left: 10px;
+}
+
+.page-content section div > p:nth-child(2) {
+	margin-top: -6px;
+	margin-left: 60px;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+.page-content section div > p:nth-child(3) {
+	margin-top:92px;
+	margin-left: 140px;
+	font-size: 25px;
+}
+
+.page-content section div > p:nth-child(4) {
+	margin-top: -6px;
+	margin-left: 85px;
+	font-size: 15px;
+	font-weight: normal;
+	letter-spacing: -2px;
+}
+
+.page-content section > p:last-child {
+	font-family: "Lucida Grande",Verdana,Lucida,Arial,Helvetica,"宋体",sans-serif;
+	margin-top: 50px;
 	margin-left: 470px;
+	color: #ad7c77;
+	font-size: 12px;
+	font-weight: normal;
 }
 
 .page-content footer {
@@ -202,25 +286,58 @@ aside ul:nth-child(3) > li:first-child::after {
 }
 
 @media screen and (max-width: 844px) {
-	.page-content section p {
-		display: none;
+	.page-content section {
+		height: 230px;
 	}
+
+	.page-content section > p:last-child {
+		margin-top: 195px;
+		margin-left: 5px;
+	}
+
 	header h2 {
 		margin-left: 350px;
 	}
 }
 
 @media screen and (max-width: 744px) {
-	.page-content section {
-		display: none;
-	}
+	
 }
 
 @media screen and (max-width: 621px) {
-	header h2,aside {
+	aside {
 		display: none;
 	}
+
+	header h2 {
+		margin-left: 14%;
+		margin-top: 60px;
+	}
+
 	.page-content {
-		margin-left: 20px;
+		margin-left: 0px;
+	}
+
+	.page-content section div > p:first-child {
+		margin: 20px 6px 0 5px;
+	}
+
+	.page-content section div > p:nth-child(2) {
+		margin: 0 6px 0 5px;
+	}
+
+	.page-content section div > p:nth-child(3) {
+		margin: 30px 6px 0 5px;
+	}
+
+	.page-content section div > p:nth-child(4) {
+		margin: 0 6px 0 5px;
+	}
+}
+
+@media screen and (max-width: 503px) {
+	.page-content section .page-content-photos {
+		width: 100%;
+		background:white url("img/5.jpg")no-repeat 4px 4px/97.5% 204px;
 	}
 }
